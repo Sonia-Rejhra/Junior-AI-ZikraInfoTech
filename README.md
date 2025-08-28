@@ -89,7 +89,7 @@ v       v                                  v
 
 <img width="307" height="263" alt="image" src="https://github.com/user-attachments/assets/c00ccc45-d0aa-49c0-a836-1f1fdd825d7d" />
 
-```mermaid
+```
 flowchart TD
     A[START] --> B[INPUT: User provides subject + description]
     B --> C[CLASSIFY: Determine ticket category]
@@ -157,7 +157,7 @@ The agent is built on **LangGraph’s `StateGraph`**, with a clear modular desig
    ```bash
    git clone https://github.com/Sonia-Rejhra/Junior-AI-ZikraInfoTech.git
    cd Sonia-Rejhra
-   
+
 2. **Create Virtual Environment**
    ```bash
   python -m venv .venv
