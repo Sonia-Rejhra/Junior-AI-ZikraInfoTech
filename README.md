@@ -228,6 +228,7 @@ Ensure this file is correctly populated with your support knowledge.
     "Our support team is available 24/7 through live chat and email. Response time is usually within 1 hour."
   ]
 }
+```
 
 
 
