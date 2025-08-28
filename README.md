@@ -1,11 +1,32 @@
+-----
 # 🤖 Support Ticket Agent using RAG and LangGraph
+This project implements an intelligent AI-powered Support Ticket Agent...
 
-This project implements an intelligent **AI-powered Support Ticket Agent** leveraging **LangGraph** for workflow orchestration and **Retrieval-Augmented Generation (RAG)** for contextual responses.  
-The agent resolves routine inquiries, retries bad drafts automatically, and escalates tough cases with full context.
 
----
+
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Orchestration-orange)](https://langchain-ai.github.io/langgraph/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Ollama](https://img.shields.io/badge/Ollama-Phi%20Model-red)](https://ollama.com/)
+
+This project implements an **AI-powered Support Ticket Resolution Agent** built with  
+**LangGraph** for workflow orchestration and **Retrieval-Augmented Generation (RAG)** for contextual knowledge.  
+
+-----
+
+✨ Key Features:
+- Multi-step **review + retry loop** → ensures only policy-compliant, high-quality answers reach the customer.  
+- Hybrid LLM setup → works with **Ollama (Phi model)** locally or **OpenAI models** via API.  
+- Contextual answers retrieved from a **JSON knowledge base**.  
+- Automatic **escalation to human agent** when the AI fails to resolve after retries.  
+
+Designed to work seamlessly with **LangGraph Studio** for debugging and visualization.
+
+
 
 ## 🧩 Workflow Diagram
+
+```
 
 +---------------+
 |    START      |
@@ -61,7 +82,7 @@ v       v                                  v
                                     +---------------+
 
 
-
+```
 ## ⚙️ Architectural Decisions  
 
 The agent is built on **LangGraph’s `StateGraph`**, with a clear modular design. Every piece has a single responsibility, making the system easy to extend and debug.  
@@ -91,5 +112,8 @@ The agent is built on **LangGraph’s `StateGraph`**, with a clear modular desig
 
 6. **Escalation (`src/nodes/escalate.py`)**  
    - If retries fail, ticket is logged into `escalations.csv`.  
-   - Ensures unresolved issues are handed off cleanly to human agents.  
+   - Ensures unresolved issues are handed off cleanly to human agents. 
+
+
+
 ---
