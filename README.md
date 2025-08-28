@@ -229,6 +229,15 @@ Ensure this file is correctly populated with your support knowledge.
   ]
 }
 ```
+### Environment Variables (Optional but Recommended)
+
+If your application needs to use secrets (like API keys or model settings), create a `.env` file in the root of your project.  
+This helps keep sensitive values out of your code.
+
+1. **Copy the example file:**
+   ```bash
+   cp .env.example .env
+   ```
 
 
 
