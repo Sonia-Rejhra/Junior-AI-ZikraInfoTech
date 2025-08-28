@@ -205,6 +205,31 @@ The agent is built on **LangGraph’s `StateGraph`**, with a clear modular desig
    scikit-learn==1.5.0
    ```
 
+### Knowledge Base Setup
+
+The RAG system loads data from `data/mock_docs.json`.  
+This file contains a JSON object where keys are categories (like billing, technical, security, general) and values are lists of documents.  
+Ensure this file is correctly populated with your support knowledge.
+
+**Example `data/mock_docs.json` content:**
+
+```json
+{
+  "billing": [
+    "For billing disputes, please contact billing@example.com or call 1-800-555-BILL. Provide your account number and transaction details. Refunds are processed in 5-7 business days."
+  ],
+  "technical": [
+    "For login issues, try resetting your password. Ensure your browser is updated, clear cache/cookies."
+  ],
+  "security": [
+    "Enable two-factor authentication (2FA) for better security. If you notice suspicious activity, contact support immediately."
+  ],
+  "general": [
+    "Our support team is available 24/7 through live chat and email. Response time is usually within 1 hour."
+  ]
+}
+
+
 
 
 
