@@ -83,6 +83,27 @@ v       v                                  v
 
 
 ```
+
+----
+## LangGraph Studio Workflow
+
+<img width="307" height="263" alt="image" src="https://github.com/user-attachments/assets/c00ccc45-d0aa-49c0-a836-1f1fdd825d7d" />
+
+
+**Simplified Flow:**
+
+1.  **Input:** User provides `subject` and `description`.
+2.  **Classify:** Determines ticket category.
+3.  **Retrieve:** Fetches relevant knowledge base articles from `data/mock_docs.json`.
+4.  **Draft:** Generates a response.
+5.  **Review:** Checks draft quality.
+      * **Approved?** ✅ Done.
+      * **Rejected?** ❌
+          * **Retries left?** Get feedback, try `Draft` again.
+          * **No retries?** `Escalate` to human.
+
+-----
+
 ## ⚙️ Architectural Decisions  
 
 The agent is built on **LangGraph’s `StateGraph`**, with a clear modular design. Every piece has a single responsibility, making the system easy to extend and debug.  
