@@ -89,7 +89,9 @@ v       v                                  v
 
 <img width="307" height="263" alt="image" src="https://github.com/user-attachments/assets/c00ccc45-d0aa-49c0-a836-1f1fdd825d7d" />
 
-```
+**Simplified Flow:**
+
+
 flowchart TD
     A[START] --> B[INPUT: User provides subject + description]
     B --> C[CLASSIFY: Determine ticket category]
@@ -110,6 +112,7 @@ flowchart TD
 The agent is built on **LangGraph’s `StateGraph`**, with a clear modular design. Every piece has a single responsibility, making the system easy to extend and debug.  
 
 1. **LangGraph Orchestration (`src/main.py`)**  
+
    - The function `support_agent()` defines and compiles the whole workflow.  
    - Handles multi-step execution with conditional routing and retry loops.  
    - Easy to visualize and debug in **LangGraph Studio**.  
@@ -153,7 +156,8 @@ The agent is built on **LangGraph’s `StateGraph`**, with a clear modular desig
 
 ### Installation
 
-1. **Clone Repository**
+1.  **Clone Repository:**
+
    ```bash
    git clone https://github.com/Sonia-Rejhra/Junior-AI-ZikraInfoTech.git
    cd Sonia-Rejhra
