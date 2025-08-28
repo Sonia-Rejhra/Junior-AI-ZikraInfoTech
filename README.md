@@ -107,6 +107,7 @@ flowchart TD
     I --> G
 
 ----
+```
 
 ## ⚙️ Architectural Decisions  
 
@@ -164,7 +165,6 @@ The agent is built on **LangGraph’s `StateGraph`**, with a clear modular desig
    cd Sonia-Rejhra
 
 2. **Create Virtual Environment**
-   ```bash
   python -m venv .venv
   .venv\Scripts\activate
   ```
