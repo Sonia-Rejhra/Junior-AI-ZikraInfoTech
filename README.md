@@ -91,16 +91,21 @@ v       v                                  v
 
 
 **Simplified Flow:**
+## 🔄 Simplified Flow (Diagram)
 
-1.  **Input:** User provides `subject` and `description`.
-2.  **Classify:** Determines ticket category.
-3.  **Retrieve:** Fetches relevant knowledge base articles from `data/mock_docs.json`.
-4.  **Draft:** Generates a response.
-5.  **Review:** Checks draft quality.
-      * **Approved?** ✅ Done.
-      * **Rejected?** ❌
-          * **Retries left?** Get feedback, try `Draft` again.
-          * **No retries?** `Escalate` to human.
+```mermaid
+flowchart TD
+    A[START] --> B[INPUT: User provides subject + description]
+    B --> C[CLASSIFY: Determine ticket category]
+    C --> D[RETRIEVE: Fetch knowledge base context]
+    D --> E[DRAFT: Generate response]
+    E --> F[REVIEW: Check draft quality]
+
+    F -->|Approved ✅| G[END]
+    F -->|Rejected ❌ & Attempts < 2| H[RETRY: Feedback sent to Draft]
+    H --> E
+
+    F -->|Rejected ❌ & Attempts ≥ 2| I[ESCALATE: Hand over to human]
 
 -----
 
@@ -135,6 +140,31 @@ The agent is built on **LangGraph’s `StateGraph`**, with a clear modular desig
    - If retries fail, ticket is logged into `escalations.csv`.  
    - Ensures unresolved issues are handed off cleanly to human agents. 
 
+----
 
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Python 3.9+**
+- **Virtual Environment (recommended)**
+- **Ollama** (agar local LLM chala rahe ho)
+  - Install from [Ollama](https://ollama.com/download)
+  - Example: `ollama run phi`
+- **OpenAI API key** (agar cloud-based LLM use karna hai)
 
 ---
+
+### Installation
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo>.git
+   cd <your-repo>
+  ```
+2. **Create Virtual Environment**
+   ```bash
+  python -m venv .venv
+  # Windows
+  .venv\Scripts\activate
+```
