@@ -256,7 +256,51 @@ This helps keep sensitive values out of your code.
   LANGCHAIN_TRACING_V2=true
   LANGCHAIN_PROJECT=support-ticket-agent
   ```
+----
+## ▶️ How to Run the Agent
 
+### 1. Command Line Interface (CLI)
+
+1. **Start Ollama Service**  
+   Make sure Ollama is running locally with the model you set in `.env` (default: `phi`).  
+   Example to pull a model:  
+   ```bash
+   ollama run phi
+   ```
+2. **Activate Virtual Environment:**
+   ```bash
+   # Windows
+   .venv\Scripts\activate
+   ```
+3. **Run The Agent:**
+  ```bash
+  python -m src.main
+  ```
+4. **Enter your ticket details when prompted:**
+
+   ```bash
+   Subject: Unable to reset password
+   Description: The reset link never arrives in my email.
+   ```
+5. **Type exit anytime to quit.**
+
+### 2. LangGraph Studio (Visual Debugging)
+LangGraph Studio gives you a visual flow of how your agent executes each node.
+
+1. **Install the LangGraph CLI (already in requirements.txt).**
+
+2. **Start the LangGraph server:**
+
+  ```bash
+  langgraph dev --host 0.0.0.0 --port 8123 src.main:support_agent
+  ```
+
+3.  **Open your browser and go to:**
+   ```bash
+   http://localhost:8123
+   ```
+4. **Interact with the workflow visually — you can see how the agent moves through**
+###  **input → classify → retrieve → draft → review → retry/escalate.**
 
 
 
