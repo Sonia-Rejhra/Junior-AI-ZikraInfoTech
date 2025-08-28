@@ -91,7 +91,7 @@ v       v                                  v
 
 **Simplified Flow:**
 
-
+```mermaid
 flowchart TD
     A[START] --> B[INPUT: User provides subject + description]
     B --> C[CLASSIFY: Determine ticket category]
@@ -104,6 +104,7 @@ flowchart TD
     H --> E
 
     F -->|Rejected ❌ & Attempts ≥ 2| I[ESCALATE: Hand over to human]
+    I --> G
 
 -----
 
