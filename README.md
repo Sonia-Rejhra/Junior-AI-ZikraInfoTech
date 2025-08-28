@@ -229,6 +229,8 @@ Ensure this file is correctly populated with your support knowledge.
   ]
 }
 ```
+----
+
 ### Environment Variables (Optional but Recommended)
 
 If your application needs to use secrets (like API keys or model settings), create a `.env` file in the root of your project.  
@@ -239,6 +241,21 @@ This helps keep sensitive values out of your code.
    cp .env.example .env
    ```
 
+2. **Edit the .env file and add your environment variables.**
+  ```bash
+   # Model selection
+   USE_OLLAMA=true
+   OLLAMA_MODEL=phi
+
+   # (Optional) OpenAI fallback
+   OPENAI_API_KEY=sk-xxxx
+   OPENAI_MODEL=gpt-4o-mini
+
+  # (Optional) LangSmith tracing
+  LANGSMITH_API_KEY=lsv2-xxxx
+  LANGCHAIN_TRACING_V2=true
+  LANGCHAIN_PROJECT=support-ticket-agent
+  ```
 
 
 
