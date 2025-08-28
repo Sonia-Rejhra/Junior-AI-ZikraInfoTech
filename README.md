@@ -106,8 +106,8 @@ flowchart TD
     F -->|Rejected ❌ & Attempts ≥ 2| I[ESCALATE: Hand over to human]
     I --> G
 
-----
 ```
+----
 
 ## ⚙️ Architectural Decisions  
 
@@ -163,8 +163,48 @@ The agent is built on **LangGraph’s `StateGraph`**, with a clear modular desig
    ```bash
    git clone https://github.com/Sonia-Rejhra/Junior-AI-ZikraInfoTech.git
    cd Sonia-Rejhra
+  ```
 
-2. **Create Virtual Environment**
+2.  **Create Virtual Environment:**
+
+   ```bash
   python -m venv .venv
   .venv\Scripts\activate
   ```
+
+3.  **Install Dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Environment Variables
+
+1. **Copy .env.example to .env:**
+   ```bash
+   cp .env.example .env
+   ```
+
+2.  **Fill required variables in .env:**
+    ```bash
+      USE_OLLAMA=true   # true for local, false for OpenAI
+      OLLAMA_MODEL=phi
+      OPENAI_MODEL=gpt-4o-mini
+    ```
+
+### `requirements.txt` Content:
+  ```bash
+   langchain==0.2.5
+   langchain-core==0.2.9
+   langgraph==0.0.51
+   langchain-community==0.2.5
+   ollama==0.1.8
+   pydantic==2.7.4
+   pandas==2.2.2
+   sentence-transformers==2.7.0
+   scikit-learn==1.5.0
+   ```
+
+
+
+
