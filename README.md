@@ -302,5 +302,82 @@ LangGraph Studio gives you a visual flow of how your agent executes each node.
 4. **Interact with the workflow visually — you can see how the agent moves through**
 ###  **input → classify → retrieve → draft → review → retry/escalate.**
 
+----
 
+## 🧪 Testing & Demonstrations
+
+Use these scenarios to test the agent’s capabilities (CLI ya LangGraph Studio dono me try kar sakte ho):
+
+### 1. ✅ Happy Path — Successful Resolution
+**Scenario:** Straightforward inquiry jo agent khud solve kar leta hai.  
+**Input Example:**
+Subject: Refund request
+Description: I was charged twice for my subscription, can I get a refund?
+**Expected Outcome:**  
+The agent classifies the ticket as `Billing`, fetches relevant documents, drafts a response, and gets approval.  
+The final response includes clear refund process instructions.
+
+### 2. 🔄 Self-Correction Loop — Retry with Feedback
+**Scenario:** The first draft is rejected, then the agent improves the response based on feedback.  
+
+**Input Example:**
+Subject: App not working
+Description: The app crashes every time I try to log in after the update.
+**Expected Outcome:**  
+The first draft is rejected for missing context or including sensitive info.  
+The agent retries with feedback → produces an improved draft → the draft is approved.
+
+**Input Example:**
+Subject: Support hours
+Description: What time are your agents available for live chat?
+**Expected Outcome:**  
+The ticket is classified as `General`.  
+The agent fetches information from the knowledge base and produces an approved draft with the correct support hours.
+
+## 📂 Project Structure
+```
+support_agent/
+├── .gitignore # Ignore venv, env files, cache, etc.
+├── README.md # Documentation (this file)
+├── requirements.txt # Python dependencies
+├── escalations.csv # Auto-created when a ticket is escalated
+├── .env.example # Example environment variables
+├── .env # Local environment variables (ignored by Git)
+├── data/ # Knowledge base for RAG
+│ └── mock_docs.json # Sample support knowledge documents
+└── src/ # Source code
+   ├── main.py # Workflow definition (LangGraph) + CLI entry
+   ├── state.py # AgentState definition (shared memory between nodes)
+   ├── llm.py # LLM setup (Ollama or OpenAI depending on env vars)
+   ├── simple_rag.py # Simple RAG retrieval logic
+   └── nodes/ # Workflow nodes (single responsibility each)
+      ├── init.py
+      ├── input_node.py # Handles initial user input
+      ├── classify.py # Classifies tickets into categories
+      ├── retrieve.py # Retrieves relevant docs from RAG KB
+      ├── draft.py # Generates draft replies
+      ├── review.py # Reviews and approves/rejects drafts
+      ├── retry.py # Manages retry loop with feedback
+      └── escalate.py # Escalates unresolved tickets to humans
+
+```
+----
+
+## 📈 Future Enhancements
+
+* **Smarter RAG:** Upgrade from simple keyword matching to embeddings with a vector database.  
+* **Improved Review:** Make draft feedback more consistent and context-aware.  
+* **Ticket System Integration:** Connect with platforms like Zendesk or ServiceNow.  
+* **User Feedback:** Let users rate replies so the agent can improve.  
+* **Clear Human Handoff:** Better mechanisms for escalation to support staff.  
+
+-----
+
+## 📧 Contact & Acknowledgments
+
+Developed by Sonia Bai for Junior AI Assessment Role, at Z360.
+
+Special thanks to the LangChain and LangGraph communities for their powerful tools.
+
+-----
 
